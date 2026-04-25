@@ -1,0 +1,101 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { ArrowRight, Sparkles } from "lucide-react"
+
+export function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-32">
+      {/* Background glow effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[128px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-[96px]" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-5xl mx-auto text-center"
+        >
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8"
+          >
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm text-white/80">Agencia Digital Premium en Colombia</span>
+          </motion.div>
+
+          {/* Main Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-4xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.9] tracking-tight text-balance"
+          >
+            Creamos experiencias
+            <span className="block mt-2 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+              digitales únicas
+            </span>
+          </motion.h1>
+
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="mt-8 text-lg md:text-[1.2rem] text-white/80 leading-relaxed max-w-2xl mx-auto text-pretty"
+          >
+            Transformamos tu visión en realidad digital. Diseño web de clase mundial, 
+            desarrollo a medida y estrategias que impulsan el crecimiento de tu negocio en Colombia.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            {/* Primary CTA */}
+            <button className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary/80 rounded-full text-white font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,157,237,0.4)]">
+              <span className="relative z-10 flex items-center gap-2">
+                Comienza tu proyecto
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </button>
+
+            {/* Secondary CTA */}
+            <button className="px-8 py-4 rounded-full border border-primary/30 text-white font-medium transition-all duration-300 hover:border-primary hover:bg-primary/10">
+              Ver nuestro trabajo
+            </button>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+          >
+            {[
+              { value: "150+", label: "Proyectos Entregados" },
+              { value: "50+", label: "Clientes Satisfechos" },
+              { value: "5", label: "Años de Experiencia" },
+              { value: "100%", label: "Compromiso" },
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
+                <div className="mt-2 text-sm text-white/60">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
