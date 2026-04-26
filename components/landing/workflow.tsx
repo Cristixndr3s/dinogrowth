@@ -7,26 +7,26 @@ const steps = [
   {
     icon: Search,
     number: "01",
-    title: "Descubrimiento",
-    description: "Analizamos tu negocio, objetivos y audiencia para crear una estrategia personalizada.",
+    title: "Briefing Inteligente",
+    description: "Analizamos tu nicho, competencia y objetivos en minutos usando modelos avanzados de IA.",
   },
   {
     icon: PenTool,
     number: "02",
-    title: "Diseño",
-    description: "Creamos wireframes y prototipos interactivos que visualizan tu proyecto antes de desarrollarlo.",
+    title: "Prototipado Express",
+    description: "Estructura y diseño de alta fidelidad listos para tu revisión en menos de 48 horas.",
   },
   {
     icon: Code,
     number: "03",
-    title: "Desarrollo",
-    description: "Construimos tu solución con código limpio, optimizado y las mejores prácticas del mercado.",
+    title: "Desarrollo de Alto Nivel",
+    description: "Código limpio, ultra rápido y optimizado para móviles con estándares internacionales.",
   },
   {
     icon: Rocket,
     number: "04",
-    title: "Lanzamiento",
-    description: "Desplegamos tu proyecto y te acompañamos en el crecimiento con soporte continuo.",
+    title: "Lanzamiento y Venta",
+    description: "Tu sitio al aire y configurado para empezar a recibir tráfico y clientes de inmediato.",
   },
 ]
 
@@ -46,12 +46,12 @@ export function Workflow() {
           className="text-center mb-16 md:mb-20"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[0.9] text-balance">
-            Nuestro
-            <span className="block mt-2 text-primary">proceso</span>
+            Tu web a la
+            <span className="block mt-2 text-primary">velocidad de la IA</span>
           </h2>
           <p className="mt-6 text-lg text-white max-w-2xl mx-auto leading-relaxed">
-            Un flujo de trabajo refinado que garantiza resultados excepcionales 
-            en cada proyecto que emprendemos.
+            Un flujo de trabajo optimizado que nos permite entregar calidad de agencia 
+            en una fracción del tiempo tradicional.
           </p>
         </motion.div>
 

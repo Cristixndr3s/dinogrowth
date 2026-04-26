@@ -9,7 +9,7 @@ import { getAllPosts, getPostBySlug } from "@/lib/blog"
 
 const categoryColors: Record<string, string> = {
   "Presencia Digital": "bg-blue-500/20 text-blue-400",
-  "SEO Local": "bg-green-500/20 text-green-400",
+  "SEO": "bg-green-500/20 text-green-400",
   "IA para Negocios": "bg-purple-500/20 text-purple-400",
   "Ventas Online": "bg-orange-500/20 text-orange-400",
   "Casos de Éxito": "bg-pink-500/20 text-pink-400",

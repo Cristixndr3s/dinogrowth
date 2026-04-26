@@ -7,39 +7,40 @@ import {
   Smartphone, 
   ShoppingCart, 
   BarChart3, 
-  Megaphone 
+  Megaphone,
+  Search 
 } from "lucide-react"
 
 const services = [
   {
-    icon: Palette,
-    title: "Diseño UI/UX",
-    description: "Interfaces intuitivas y visualmente impactantes que cautivan a tus usuarios desde el primer momento.",
-  },
-  {
-    icon: Code2,
-    title: "Desarrollo Web",
-    description: "Sitios web rápidos, seguros y escalables construidos con las últimas tecnologías del mercado.",
-  },
-  {
     icon: Smartphone,
-    title: "Apps Móviles",
-    description: "Aplicaciones nativas y multiplataforma que conectan con tu audiencia donde sea que estén.",
+    title: "Landing Pages",
+    description: "Optimizadas para convertir clics en clientes por WhatsApp. Ideales para campañas rápidas y lanzamientos.",
+  },
+  {
+    icon: Palette,
+    title: "Sitios Corporativos",
+    description: "Tu oficina virtual 24/7. Credibilidad, elegancia y funcionalidad para empresas que buscan destacar.",
   },
   {
     icon: ShoppingCart,
     title: "E-commerce",
-    description: "Tiendas online optimizadas para conversión con pasarelas de pago colombianas integradas.",
+    description: "Vende tus productos en toda Colombia con pagos integrados (Bold, Wompi, Nequi).",
   },
   {
-    icon: BarChart3,
-    title: "Analítica Digital",
-    description: "Métricas y dashboards que te permiten tomar decisiones basadas en datos reales.",
+    icon: Search,
+    title: "SEO",
+    description: "Posiciona tu negocio en Google y aparece cuando tus clientes te están buscando.",
+  },
+  {
+    icon: Code2,
+    title: "Mantenimiento IA",
+    description: "Actualizaciones rápidas, seguridad total y soporte proactivo para que tu sitio nunca deje de vender.",
   },
   {
     icon: Megaphone,
-    title: "Marketing Digital",
-    description: "Estrategias de posicionamiento y publicidad que maximizan tu retorno de inversión.",
+    title: "Contenido Estratégico",
+    description: "Artículos y textos optimizados con IA para atraer clientes calificados sin depender solo de publicidad.",
   },
 ]
 
@@ -75,12 +76,12 @@ export function Services() {
           className="text-center mb-16 md:mb-20"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[0.9] text-balance">
-            Servicios que
-            <span className="block mt-2 text-primary">transforman</span>
+            Soluciones digitales
+            <span className="block mt-2 text-primary">que facturan</span>
           </h2>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Soluciones digitales integrales diseñadas para impulsar el crecimiento 
-            de tu empresa en el mercado colombiano.
+            Potenciamos tu negocio con tecnología IA para que obtengas resultados 
+            profesionales en tiempo récord y al mejor precio del mercado.
           </p>
         </motion.div>
 

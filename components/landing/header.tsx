@@ -3,11 +3,12 @@
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
 
 const navItems = [
   { label: "Servicios", href: "#servicios" },
   { label: "Proceso", href: "#proceso" },
-  { label: "Precios", href: "#precios" },
+  { label: "Blog", href: "/blog" },
   { label: "Contacto", href: "#contacto" },
 ]
 
@@ -37,20 +38,20 @@ export function Header() {
       <div className="container mx-auto px-6">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="text-xl font-bold text-white">
-            <span className="text-primary">Nexus</span>Digital
+          <a href="/" className="text-xl font-bold text-white">
+            <span className="text-primary">dino</span>growth
           </a>
 
           {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   className="text-sm text-white/70 hover:text-primary transition-colors duration-300"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -86,13 +87,13 @@ export function Header() {
           <ul className="pt-6 pb-4 space-y-4">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block text-white/70 hover:text-primary transition-colors duration-300"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li className="pt-2">

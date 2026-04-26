@@ -17,7 +17,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-5xl mx-auto text-center"
+          className="max-w-6xl mx-auto text-center"
         >
           {/* Badge */}
           <motion.div
@@ -27,7 +27,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-white/80">Agencia Digital Premium en Colombia</span>
+            <span className="text-sm text-white/80">Agencia Digital Potenciada por IA en Colombia</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -35,11 +35,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-4xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.9] tracking-tight text-balance"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.9] tracking-tight"
           >
-            Creamos experiencias
+            Tu sitio web profesional
             <span className="block mt-2 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
-              digitales únicas
+              listo en 5 días
             </span>
           </motion.h1>
 
@@ -50,8 +50,8 @@ export function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="mt-8 text-lg md:text-[1.2rem] text-white/80 leading-relaxed max-w-2xl mx-auto text-pretty"
           >
-            Transformamos tu visión en realidad digital. Diseño web de clase mundial, 
-            desarrollo a medida y estrategias que impulsan el crecimiento de tu negocio en Colombia.
+            Diseñamos y desarrollamos sitios de clase mundial con el poder de la IA. 
+            Más rápido que una agencia tradicional, más profesional que un freelancer. Desde $600k.
           </motion.p>
 
           {/* CTAs */}
@@ -64,14 +64,14 @@ export function Hero() {
             {/* Primary CTA */}
             <button className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary/80 rounded-full text-white font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,157,237,0.4)]">
               <span className="relative z-10 flex items-center gap-2">
-                Comienza tu proyecto
+                Lanzar mi proyecto ya
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </span>
             </button>
 
             {/* Secondary CTA */}
             <button className="px-8 py-4 rounded-full border border-primary/30 text-white font-medium transition-all duration-300 hover:border-primary hover:bg-primary/10">
-              Ver nuestro trabajo
+              Ver blog y casos
             </button>
           </motion.div>
 
@@ -83,10 +83,10 @@ export function Hero() {
             className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
           >
             {[
-              { value: "150+", label: "Proyectos Entregados" },
-              { value: "50+", label: "Clientes Satisfechos" },
-              { value: "5", label: "Años de Experiencia" },
-              { value: "100%", label: "Compromiso" },
+              { value: "5 Días", label: "Tiempo de Entrega" },
+              { value: "100%", label: "Optimización SEO" },
+              { value: "$600k", label: "Precios desde" },
+              { value: "IA Powered", label: "Tecnología de Punta" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>

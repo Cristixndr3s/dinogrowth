@@ -1,89 +1,21 @@
 "use client"
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react"
+import { motion } from "framer-motion"
+import { ArrowLeft, ArrowRight, Calendar, Clock } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState } from "react"
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "Tendencias de Diseño Web que Dominarán el 2024",
-    excerpt: "Exploramos las últimas tendencias en diseño web: desde el minimalismo radical hasta las experiencias inmersivas con scroll animations.",
-    image: "/blog/design-trends.jpg",
-    author: "María González",
-    date: "15 Ene 2024",
-    readTime: "5 min",
-    category: "Diseño",
-    slug: "tendencias-diseno-web-2024",
-  },
-  {
-    id: 2,
-    title: "SEO Local: Cómo Posicionar tu Negocio en Colombia",
-    excerpt: "Guía completa para dominar las búsquedas locales y atraer más clientes a tu negocio en el mercado colombiano.",
-    image: "/blog/seo-local.jpg",
-    author: "Carlos Ramírez",
-    date: "12 Ene 2024",
-    readTime: "8 min",
-    category: "Marketing",
-    slug: "seo-local-colombia",
-  },
-  {
-    id: 3,
-    title: "E-commerce en Colombia: Guía Completa para 2024",
-    excerpt: "Todo lo que necesitas saber para lanzar y escalar tu tienda online en el mercado colombiano con éxito.",
-    image: "/blog/ecommerce.jpg",
-    author: "Ana Martínez",
-    date: "8 Ene 2024",
-    readTime: "12 min",
-    category: "Negocio",
-    slug: "ecommerce-colombia-guia",
-  },
-  {
-    id: 4,
-    title: "Automatización con IA para Pequeñas Empresas",
-    excerpt: "Descubre cómo la inteligencia artificial puede optimizar procesos y reducir costos en tu negocio.",
-    image: "/blog/ai-automation.jpg",
-    author: "Diego López",
-    date: "5 Ene 2024",
-    readTime: "6 min",
-    category: "Tecnología",
-    slug: "automatizacion-ia-empresas",
-  },
-  {
-    id: 5,
-    title: "Branding Digital: Construye una Marca Memorable",
-    excerpt: "Las claves para crear una identidad de marca que conecte emocionalmente con tu audiencia en el entorno digital.",
-    image: "/blog/branding.jpg",
-    author: "Laura Sánchez",
-    date: "2 Ene 2024",
-    readTime: "7 min",
-    category: "Branding",
-    slug: "branding-digital-marca",
-  },
-  {
-    id: 6,
-    title: "Performance Web: Velocidad que Convierte",
-    excerpt: "Cómo optimizar la velocidad de tu sitio web para mejorar la experiencia de usuario y aumentar conversiones.",
-    image: "/blog/performance.jpg",
-    author: "Andrés Castro",
-    date: "28 Dic 2023",
-    readTime: "9 min",
-    category: "Desarrollo",
-    slug: "performance-web-optimizacion",
-  },
-]
+import type { Post } from "@/lib/blog"
 
 const categoryColors: Record<string, string> = {
-  Diseño: "bg-pink-500/20 text-pink-400",
-  Marketing: "bg-green-500/20 text-green-400",
-  Negocio: "bg-yellow-500/20 text-yellow-400",
-  Tecnología: "bg-purple-500/20 text-purple-400",
-  Branding: "bg-orange-500/20 text-orange-400",
-  Desarrollo: "bg-primary/20 text-primary",
+  "Presencia Digital": "bg-blue-500/20 text-blue-400",
+  "SEO": "bg-green-500/20 text-green-400",
+  "IA para Negocios": "bg-purple-500/20 text-purple-400",
+  "Ventas Online": "bg-orange-500/20 text-orange-400",
+  "Casos de Éxito": "bg-pink-500/20 text-pink-400",
 }
 
-export function BlogSection() {
+export function BlogSection({ posts }: { posts: Post[] }) {
   const carouselRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
@@ -170,36 +102,39 @@ export function BlogSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative"
         >
-          {/* Gradient overlays for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
           {/* Scrollable container */}
           <div
             ref={carouselRef}
             onScroll={checkScrollability}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 -mx-6 px-6 snap-x snap-mandatory"
+            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 -mx-6 px-6"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {blogPosts.map((post, index) => (
+            {posts.map((post, index) => (
               <motion.article
-                key={post.id}
+                key={post.slug}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex-shrink-0 w-[320px] md:w-[380px] snap-start"
+                className="flex-shrink-0 w-[320px] md:w-[380px]"
               >
                 <Link href={`/blog/${post.slug}`} className="block group">
                   <div className="relative bg-card/50 rounded-2xl border border-[#009ded22] overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_40px_rgba(0,157,237,0.1)]">
                     {/* Image */}
-                    <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/20 to-card">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+                    <div className="relative h-52 overflow-hidden bg-card">
+                      {post.image ? (
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-card flex items-center justify-center">
                           <span className="text-3xl font-bold text-primary">{post.category.charAt(0)}</span>
                         </div>
-                      </div>
-                      {/* Hover overlay */}
+                      )}
                       <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
 
