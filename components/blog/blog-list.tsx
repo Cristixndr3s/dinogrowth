@@ -138,7 +138,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
       )}
 
       {/* Blog Grid */}
-      <section className="pb-20 md:pb-32">
+      <section className="pt-12 pb-20 md:pb-32">
         <div className="container mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {regularPosts.map((post, index) => (

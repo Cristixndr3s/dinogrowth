@@ -2,14 +2,27 @@
 
 import { motion } from "framer-motion"
 import { ArrowRight, Sparkles } from "lucide-react"
+import FloatingLines from "@/components/floating-lines"
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-32">
-      {/* Background glow effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[128px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-[96px]" />
+      {/* Floating Lines Background */}
+      <div className="absolute inset-0 z-0">
+        <FloatingLines
+          linesGradient={["#004d7a", "#003360", "#001f40", "#000d1a"]}
+          enabledWaves={["bottom", "middle", "top"]}
+          lineCount={[4, 6, 3]}
+          lineDistance={[8, 5, 10]}
+          animationSpeed={0.6}
+          interactive={true}
+          bendRadius={5.0}
+          bendStrength={-0.5}
+          mouseDamping={0.05}
+          parallax={true}
+          parallaxStrength={0.15}
+          mixBlendMode="screen"
+        />
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
@@ -62,17 +75,25 @@ export function Hero() {
             className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             {/* Primary CTA */}
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary/80 rounded-full text-white font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,157,237,0.4)]">
+            <a
+              href="https://wa.me/573116710009?text=Hola%2C%20vi%20tu%20sitio%20y%20quiero%20lanzar%20mi%20proyecto."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary/80 rounded-full text-white font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,157,237,0.4)]"
+            >
               <span className="relative z-10 flex items-center gap-2">
                 Lanzar mi proyecto ya
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </span>
-            </button>
+            </a>
 
             {/* Secondary CTA */}
-            <button className="px-8 py-4 rounded-full border border-primary/30 text-white font-medium transition-all duration-300 hover:border-primary hover:bg-primary/10">
+            <a
+              href="/blog"
+              className="px-8 py-4 rounded-full border border-primary/30 text-white font-medium transition-all duration-300 hover:border-primary hover:bg-primary/10"
+            >
               Ver blog y casos
-            </button>
+            </a>
           </motion.div>
 
           {/* Stats */}

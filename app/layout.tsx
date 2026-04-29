@@ -9,8 +9,8 @@ const lexendDeca = Lexend_Deca({
 });
 
 export const metadata: Metadata = {
-  title: 'Nexus Digital | Agencia Creativa en Colombia',
-  description: 'Transformamos marcas colombianas con experiencias digitales de clase mundial. Diseño web, desarrollo y estrategia digital.',
+  title: 'Dinogrowth | Agencia Digital Potenciada por IA en Colombia',
+  description: 'Transformamos marcas colombianas con el poder de la IA. Sitios web profesionales, rápidos y económicos.',
   generator: 'v0.app',
   icons: {
     icon: [

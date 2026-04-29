@@ -1,46 +1,54 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 import { 
   Palette, 
   Code2, 
-  Smartphone, 
+  Rocket, 
   ShoppingCart, 
-  BarChart3, 
-  Megaphone,
-  Search 
+  ShieldCheck, 
+  Search,
+  Layout,
+  ArrowRight
 } from "lucide-react"
 
 const services = [
   {
-    icon: Smartphone,
-    title: "Landing Pages",
-    description: "Optimizadas para convertir clics en clientes por WhatsApp. Ideales para campañas rápidas y lanzamientos.",
+    slug: "sitios-web",
+    icon: Layout,
+    title: "Sitios Web de Alto Impacto",
+    description: "Diseñamos portales corporativos que no solo se ven bien, sino que venden. Estructuras de clase mundial optimizadas con IA para maximizar la conversión y velocidad.",
   },
   {
-    icon: Palette,
-    title: "Sitios Corporativos",
-    description: "Tu oficina virtual 24/7. Credibilidad, elegancia y funcionalidad para empresas que buscan destacar.",
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-commerce",
-    description: "Vende tus productos en toda Colombia con pagos integrados (Bold, Wompi, Nequi).",
-  },
-  {
-    icon: Search,
-    title: "SEO",
-    description: "Posiciona tu negocio en Google y aparece cuando tus clientes te están buscando.",
-  },
-  {
+    slug: "software-a-la-medida",
     icon: Code2,
-    title: "Mantenimiento IA",
-    description: "Actualizaciones rápidas, seguridad total y soporte proactivo para que tu sitio nunca deje de vender.",
+    title: "Software a la Medida",
+    description: "Automatizamos y escalamos tu operación con soluciones personalizadas. Arquitecturas modernas diseñadas para adaptarse al crecimiento específico de tu negocio.",
   },
   {
-    icon: Megaphone,
-    title: "Contenido Estratégico",
-    description: "Artículos y textos optimizados con IA para atraer clientes calificados sin depender solo de publicidad.",
+    slug: "ecommerce",
+    icon: ShoppingCart,
+    title: "E-commerce Escalable",
+    description: "Domina el comercio electrónico en Colombia. Tiendas online de alto rendimiento con integración total de pasarelas de pago (Bold, Wompi) y logística.",
+  },
+  {
+    slug: "mvp",
+    icon: Rocket,
+    title: "Desarrollo de MVP",
+    description: "Acelera tu llegada al mercado. Desarrollamos productos mínimos viables potenciados por IA para validar tu modelo de negocio en tiempo récord y con menor inversión.",
+  },
+  {
+    slug: "webmaster",
+    icon: ShieldCheck,
+    title: "Webmaster Proactivo",
+    description: "Mantenimiento especializado para que tu sitio nunca se detenga. Seguridad blindada, actualizaciones constantes y soporte técnico dedicado para tu tranquilidad.",
+  },
+  {
+    slug: "seo",
+    icon: Search,
+    title: "Posicionamiento SEO",
+    description: "Aparece donde están las búsquedas de tus clientes. Estrategias de SEO técnico y de contenido para dominar tu nicho y reducir tu dependencia de la publicidad pagada.",
   },
 ]
 
@@ -94,30 +102,32 @@ export function Services() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ duration: 0.3 }}
-              className="group relative p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-[#009ded22] hover:border-primary/40 transition-all duration-300"
-            >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <service.icon className="w-6 h-6 text-primary" />
+            <Link key={index} href={`/servicios/${service.slug}`}>
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ scale: 1.02, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="group relative h-full p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-[#009ded22] hover:border-primary/40 transition-all duration-300"
+              >
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                    <service.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  
+                  <h3 className="text-xl font-semibold text-white mb-3 flex items-center justify-between">
+                    {service.title}
+                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-primary" />
+                  </h3>
+                  
+                  <p className="text-sm text-white/80 leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-                
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  {service.title}
-                </h3>
-                
-                <p className="text-sm text-white/80 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>
