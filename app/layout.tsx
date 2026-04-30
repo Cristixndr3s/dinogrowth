@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Lexend_Deca } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 const lexendDeca = Lexend_Deca({ 
@@ -55,6 +56,7 @@ export default function RootLayout({
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
+      {process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId="G-9R1W10WJ99" />}
     </html>
   )
 }
