@@ -4,7 +4,8 @@ import { motion } from "framer-motion"
 import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { WhatsAppButton } from "@/components/landing/whatsapp-button"
-import type { ServiceDetail } from "@/lib/services"
+import { servicesData } from "@/lib/services"
+import { notFound } from "next/navigation"
 import {
   ArrowRight,
   CheckCircle2,
@@ -189,7 +190,9 @@ const ServiceVisual = ({ slug }: { slug: string }) => {
 
 // --- Page ---
 
-export function ServicePageClient({ service }: { service: ServiceDetail }) {
+export function ServicePageClient({ slug }: { slug: string }) {
+  const service = servicesData[slug]
+  if (!service) return notFound()
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Header />

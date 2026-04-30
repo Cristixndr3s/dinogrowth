@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import { servicesData } from "@/lib/services"
 import { ServicePageClient } from "@/components/servicios/service-page-client"
 
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const service = servicesData[slug]
@@ -29,7 +30,6 @@ export async function generateStaticParams() {
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const service = servicesData[slug]
-  if (!service) notFound()
-  return <ServicePageClient service={service} />
+  if (!servicesData[slug]) notFound()
+  return <ServicePageClient slug={slug} />
 }
