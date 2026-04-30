@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, Calendar, Clock, Facebook, Linkedin, Share2, Twitter } from "lucide-react"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { getAllPosts, getPostBySlug } from "@/lib/blog"
@@ -124,7 +125,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="grid lg:grid-cols-[1fr_320px] gap-12 lg:gap-16">
             {/* MDX Content */}
             <article className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-p:text-white/80 prose-li:text-white/80 prose-strong:text-white prose-a:text-primary prose-hr:border-white/10 prose-th:text-white prose-td:text-white/80">
-              <MDXRemote source={content} />
+              <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
             </article>
 
             {/* Sidebar */}
