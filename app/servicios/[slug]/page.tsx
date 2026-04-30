@@ -203,6 +203,27 @@ const ServiceVisual = ({ slug }: { slug: string }) => {
 
 // --- Main Page Component ---
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const service = servicesData[slug]
+  if (!service) return {}
+  return {
+    title: service.title,
+    description: service.subtitle,
+    openGraph: {
+      title: service.title,
+      description: service.subtitle,
+      url: `https://dinogrowth.com/servicios/${slug}`,
+      images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: service.title,
+      description: service.subtitle,
+    },
+  }
+}
+
 export default function ServicePage() {
   const params = useParams()
   const slug = params.slug as string

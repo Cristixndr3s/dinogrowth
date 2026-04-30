@@ -1,4 +1,16 @@
+import type { Metadata } from 'next'
 import { Header } from "@/components/landing/header"
+
+export const metadata: Metadata = {
+  title: 'Dinogrowth | Agencia Digital Potenciada por IA en Colombia',
+  description: 'Creamos sitios web, software y tiendas online para negocios colombianos usando inteligencia artificial. Entrega en días, precios justos.',
+  openGraph: {
+    title: 'Dinogrowth | Agencia Digital Potenciada por IA en Colombia',
+    description: 'Creamos sitios web, software y tiendas online para negocios colombianos usando inteligencia artificial. Entrega en días, precios justos.',
+    url: 'https://dinogrowth.com',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+  },
+}
 import { Hero } from "@/components/landing/hero"
 import { Services } from "@/components/landing/services"
 import { Workflow } from "@/components/landing/workflow"

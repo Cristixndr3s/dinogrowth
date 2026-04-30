@@ -15,6 +15,31 @@ const categoryColors: Record<string, string> = {
   "Casos de Éxito": "bg-pink-500/20 text-pink-400",
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
+  if (!post) return {}
+  const { frontmatter } = post
+  return {
+    title: frontmatter.title,
+    description: frontmatter.excerpt || frontmatter.description,
+    openGraph: {
+      title: frontmatter.title,
+      description: frontmatter.excerpt || frontmatter.description,
+      type: 'article',
+      publishedTime: frontmatter.date,
+      url: `https://dinogrowth.com/blog/${slug}`,
+      images: frontmatter.image ? [{ url: frontmatter.image, width: 1200, height: 630 }] : [{ url: '/og-image.jpg' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontmatter.title,
+      description: frontmatter.excerpt || frontmatter.description,
+      images: frontmatter.image ? [frontmatter.image] : ['/og-image.jpg'],
+    },
+  }
+}
+
 export async function generateStaticParams() {
   const posts = getAllPosts()
   return posts.map((post) => ({ slug: post.slug }))
