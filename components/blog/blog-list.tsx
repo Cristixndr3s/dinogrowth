@@ -20,8 +20,8 @@ export function BlogList({ posts }: { posts: Post[] }) {
   const [activeCategory, setActiveCategory] = useState("Todos")
   const [searchQuery, setSearchQuery] = useState("")
 
-  // El post destacado será siempre el primero de la lista (el más reciente)
-  const featuredPost = posts[0]
+  // El post destacado: primero con featured:true, si no el más reciente
+  const featuredPost = posts.find((p) => p.featured) ?? posts[0]
 
   const filteredPosts = posts.filter((post) => {
     const matchesCategory = activeCategory === "Todos" || post.category === activeCategory
