@@ -101,8 +101,8 @@ export function Contact() {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-white/60">Ubicación</p>
-                  <p className="text-white">Bogotá, Colombia</p>
+                  <p className="text-sm text-white/60">Filosofía</p>
+                  <p className="text-white">100% remoto, 0% excusas</p>
                 </div>
               </div>
             </div>
