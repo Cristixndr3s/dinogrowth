@@ -13,11 +13,28 @@ export function Contact() {
   })
 
   const [focused, setFocused] = useState<string | null>(null)
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("[v0] Form submitted:", formData)
+    setStatus("loading")
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (res.ok) {
+        setStatus("success")
+        setFormData({ name: "", email: "", phone: "", message: "" })
+      } else {
+        setStatus("error")
+      }
+    } catch {
+      setStatus("error")
+    }
   }
 
   return (
@@ -201,13 +218,25 @@ export function Contact() {
               {/* Submit Button */}
               <motion.button
                 type="submit"
+                disabled={status === "loading"}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-gradient-to-r from-primary to-primary/80 rounded-xl text-white font-medium flex items-center justify-center gap-2 hover:shadow-[0_0_30px_rgba(0,157,237,0.4)] transition-all duration-300"
+                className="w-full py-4 bg-gradient-to-r from-primary to-primary/80 rounded-xl text-white font-medium flex items-center justify-center gap-2 hover:shadow-[0_0_30px_rgba(0,157,237,0.4)] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <Send className="w-4 h-4" />
-                Enviar mensaje
+                {status === "loading" ? "Enviando..." : "Enviar mensaje"}
               </motion.button>
+
+              {status === "success" && (
+                <p className="text-center text-green-400 text-sm">
+                  ¡Mensaje enviado! Te respondemos pronto.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-center text-red-400 text-sm">
+                  Hubo un error. Escríbenos directo a hablemos@dinogrowth.com
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
