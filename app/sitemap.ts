@@ -1,18 +1,31 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/blog'
-import { servicesData } from '@/lib/services'
+
+const serviceSlugs = [
+  'sitios-web',
+  'software-a-la-medida',
+  'ecommerce',
+  'mvp',
+  'webmaster',
+  'seo',
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://dinogrowth.com'
 
-  const posts = getAllPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  let posts: MetadataRoute.Sitemap = []
+  try {
+    posts = getAllPosts().map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }))
+  } catch {
+    posts = []
+  }
 
-  const services = Object.keys(servicesData).map((slug) => ({
+  const services: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({
     url: `${baseUrl}/servicios/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
