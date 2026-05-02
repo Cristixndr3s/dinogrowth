@@ -2,13 +2,18 @@ import type { Metadata } from 'next'
 import { Header } from "@/components/landing/header"
 
 export const metadata: Metadata = {
-  title: 'Dinogrowth | Agencia Digital Potenciada por IA en Colombia',
-  description: 'Creamos sitios web, software y tiendas online para negocios colombianos usando inteligencia artificial. Entrega en días, precios justos.',
+  title: 'Dinogrowth | Sitios Web Profesionales en Días con IA — Desde $600k',
+  description: 'Diseñamos y desarrollamos tu sitio web, tienda online o software en 3 a 7 días usando IA. Para pymes y emprendedores en Colombia. Desde $600.000 COP.',
   openGraph: {
-    title: 'Dinogrowth | Agencia Digital Potenciada por IA en Colombia',
-    description: 'Creamos sitios web, software y tiendas online para negocios colombianos usando inteligencia artificial. Entrega en días, precios justos.',
+    title: 'Tu sitio web profesional listo en días — Dinogrowth Colombia',
+    description: 'Diseñamos y desarrollamos tu sitio web, tienda online o software en 3 a 7 días usando IA. Para pymes y emprendedores en Colombia. Desde $600.000 COP.',
     url: 'https://dinogrowth.com',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tu sitio web profesional listo en días — Dinogrowth Colombia',
+    description: 'Diseñamos y desarrollamos tu sitio web, tienda online o software en 3 a 7 días usando IA. Para pymes y emprendedores en Colombia. Desde $600.000 COP.',
   },
 }
 import { Hero } from "@/components/landing/hero"
